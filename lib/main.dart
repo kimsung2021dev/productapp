@@ -72,28 +72,29 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         // theme:CustomTheme.lightTheme,
-        theme: ThemeData(
-          brightness: Brightness.light,
-          primaryColor: Colors.cyan,
-
-          // Define the default font family.
-          fontFamily: 'Georgia',
-          scaffoldBackgroundColor: Colors.white,
-          colorScheme:
-              ColorScheme.fromSwatch().copyWith(secondary: Colors.cyan),
-          // fontFamily: 'Montserrat',
-          // buttonTheme: ButtonThemeData(
-          //   shape:
-          //   RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-          //   buttonColor: Colors.purpleAccent,
-          // ),
-
-          // textTheme: const TextTheme(
-          //   headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-          //   headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-          //   bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
-          // ),
-        ),
+        // theme: ThemeData(
+        //   brightness: Brightness.light,
+        //   primaryColor: Colors.pink,
+        //
+        //   // Define the default font family.
+        //   fontFamily: 'Georgia',
+        //   scaffoldBackgroundColor: Colors.white,
+        //   colorScheme:
+        //       ColorScheme.fromSwatch().copyWith(secondary: Colors.pink),
+        //   // fontFamily: 'Montserrat',
+        //   // buttonTheme: ButtonThemeData(
+        //   //   shape:
+        //   //   RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+        //   //   buttonColor: Colors.purpleAccent,
+        //   // ),
+        //
+        //   // textTheme: const TextTheme(
+        //   //   headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+        //   //   headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+        //   //   bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        //   // ),
+        // ),
+        theme: ThemeData(primarySwatch: Colors.green),
         home: ProductOverviewScreen("ES STORE"),
         routes: {
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),

@@ -1,2 +1,3 @@
-2022/03/09-10:24:43.721 7900 Creating DB C:\Users\KIMSUN~1.SOU\AppData\Local\Temp\flutter_tools.321b4ee9\flutter_tools_chrome_device.afc22fa6\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb since it was missing.
-2022/03/09-10:24:43.747 7900 Reusing MANIFEST C:\Users\KIMSUN~1.SOU\AppData\Local\Temp\flutter_tools.321b4ee9\flutter_tools_chrome_device.afc22fa6\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/03/09-15:08:41.334 13dc Reusing MANIFEST C:\Users\KIMSUN~1.SOU\AppData\Local\Temp\flutter_tools.1a6b7c71\flutter_tools_chrome_device.c36bb901\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/03/09-15:08:41.337 13dc Recovering log #3
+2022/03/09-15:08:41.337 13dc Reusing old log C:\Users\KIMSUN~1.SOU\AppData\Local\Temp\flutter_tools.1a6b7c71\flutter_tools_chrome_device.c36bb901\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/000003.log 
