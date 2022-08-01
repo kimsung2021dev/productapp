@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:product_app/models/card.dart';
 import 'package:product_app/models/product.dart';
 import 'package:product_app/screens/product_detail.dart';
@@ -16,7 +15,7 @@ class ProductItem extends StatelessWidget {
     final cardItem = Provider.of<CardProvider>(context, listen: false);
     // return Consumer<Product>(UniqueKey(),builder: (context, value, child) =>  ,)
     return Consumer<Product>(
-      builder: ( context, prd,  child) => ClipRRect(
+      builder: (context, prd, child) => ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
         child: GestureDetector(
           onTap: () => Navigator.of(context)
@@ -32,14 +31,14 @@ class ProductItem extends StatelessWidget {
                   icon: prd.isFav
                       ? Icon(Icons.favorite)
                       : Icon(Icons.favorite_outline),
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   onPressed: () {
                     prd.toggleFavorite();
                   },
                 ),
                 trailing: IconButton(
                   icon: Icon(Icons.shopping_cart_outlined),
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   onPressed: () {
                     cardItem.addItem(prd.id, prd.price, prd.title);
                     ScaffoldMessenger.of(context).hideCurrentSnackBar();

@@ -1,0 +1,10 @@
+^D:\FLUTTERPR\PRODUCTAPP\BUILD\WINDOWS\CMAKEFILES\0C29790C1B9035C70E3D12D6408CBF33\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/FLUTTERPR/productapp/windows -BD:/FLUTTERPR/productapp/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/FLUTTERPR/productapp/build/windows/product_app.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

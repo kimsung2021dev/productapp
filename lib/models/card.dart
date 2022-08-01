@@ -20,7 +20,7 @@ class CardProvider with ChangeNotifier {
   }
 
   int get itemCount {
-    if (_items == null) {
+    if (_items.isEmpty) {
       return 0;
     } else {
       return _items.length;

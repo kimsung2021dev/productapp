@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:product_app/models/product.dart';
 import 'package:product_app/provider/Products.dart';
 import 'package:provider/provider.dart';
@@ -40,17 +39,15 @@ class _EditProductState extends State<EditProduct> {
   void didChangeDependencies() {
     if (_isInit) {
       final prdId = ModalRoute.of(context)!.settings.arguments as String;
-      if (prdId != null) {
-        _editedProduct =
-            Provider.of<Products>(context, listen: false).findById(prdId);
-        _initValues = {
-          'title': _editedProduct.title,
-          'desc': _editedProduct.desc,
-          'price': _editedProduct.price.toString(),
-          'imgURL': ''
-        };
-        _imgURLController.text = _editedProduct.imgUrl;
-      }
+      _editedProduct =
+          Provider.of<Products>(context, listen: false).findById(prdId);
+      _initValues = {
+        'title': _editedProduct.title,
+        'desc': _editedProduct.desc,
+        'price': _editedProduct.price.toString(),
+        'imgURL': ''
+      };
+      _imgURLController.text = _editedProduct.imgUrl;
       _isInit = false;
       super.didChangeDependencies();
     }

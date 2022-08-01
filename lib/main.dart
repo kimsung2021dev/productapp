@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:product_app/models/card.dart';
 import 'package:product_app/provider/Products.dart';
 import 'package:product_app/provider/orders.dart';
@@ -9,7 +8,6 @@ import 'package:product_app/screens/edit_product.dart';
 import 'package:product_app/screens/order_screen.dart';
 import 'package:product_app/screens/product_detail.dart';
 import 'package:product_app/screens/product_overview.dart';
-import 'package:product_app/screens/product_screen.dart';
 import 'package:product_app/screens/user_product_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -71,30 +69,29 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        // theme:CustomTheme.lightTheme,
-        // theme: ThemeData(
-        //   brightness: Brightness.light,
-        //   primaryColor: Colors.pink,
-        //
-        //   // Define the default font family.
-        //   fontFamily: 'Georgia',
-        //   scaffoldBackgroundColor: Colors.white,
-        //   colorScheme:
-        //       ColorScheme.fromSwatch().copyWith(secondary: Colors.pink),
-        //   // fontFamily: 'Montserrat',
-        //   // buttonTheme: ButtonThemeData(
-        //   //   shape:
-        //   //   RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-        //   //   buttonColor: Colors.purpleAccent,
-        //   // ),
-        //
-        //   // textTheme: const TextTheme(
-        //   //   headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-        //   //   headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-        //   //   bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
-        //   // ),
-        // ),
-        theme: ThemeData(primarySwatch: Colors.green),
+        theme: ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Colors.pink,
+
+          // Define the default font family.
+          // fontFamily: 'Georgia',
+          scaffoldBackgroundColor: Colors.white,
+          colorScheme:
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.pink),
+          // fontFamily: 'Montserrat',
+          buttonTheme: ButtonThemeData(
+            shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+            buttonColor: Colors.purpleAccent,
+          ),
+
+          // textTheme: const TextTheme(
+          //   headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+          //   headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+          //   bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+          // ),
+        ),
+        // theme: ThemeData(primarySwatch: Colors.green),
         home: ProductOverviewScreen("ES STORE"),
         routes: {
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
