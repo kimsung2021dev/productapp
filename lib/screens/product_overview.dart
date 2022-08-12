@@ -47,49 +47,49 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.call),
-              label: 'Calls',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.camera),
-              label: 'Camera',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.chat),
-              label: 'Chats',
-            ),
-          ],
-        ),
+        // bottomNavigationBar: BottomNavigationBar(
+        //   items: const <BottomNavigationBarItem>[
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.call),
+        //       label: 'Calls',
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.camera),
+        //       label: 'Camera',
+        //     ),
+        //     BottomNavigationBarItem(
+        //       icon: Icon(Icons.chat),
+        //       label: 'Chats',
+        //     ),
+        //   ],
+        // ),
         appBar: AppBar(
           title: Text(widget.title),
           actions: [
-            // PopupMenuButton(
-            //   onSelected: (FilterOption selectedValue) {
-            //     setState(() {
-            //       if (selectedValue == FilterOption.All) {
-            //         print('ALL');
-            //         _showFavourite = false;
-            //       } else {
-            //         print('Fav');
-            //         _showFavourite = true;
-            //       }
-            //     });
-            //   },
-            //   icon: Icon(Icons.more_vert),
-            //   itemBuilder: (_) => [
-            //     PopupMenuItem(
-            //       child: Text("Only Favourites"),
-            //       value: FilterOption.Favourites,
-            //     ),
-            //     PopupMenuItem(
-            //       child: Text("Show All"),
-            //       value: FilterOption.All,
-            //     ),
-            //   ],
-            // ),
+            PopupMenuButton(
+              onSelected: (FilterOption selectedValue) {
+                setState(() {
+                  if (selectedValue == FilterOption.All) {
+                    print('ALL');
+                    _showFavourite = false;
+                  } else {
+                    print('Fav');
+                    _showFavourite = true;
+                  }
+                });
+              },
+              icon: Icon(Icons.more_vert),
+              itemBuilder: (_) => [
+                PopupMenuItem(
+                  child: Text("Only Favourites"),
+                  value: FilterOption.Favourites,
+                ),
+                PopupMenuItem(
+                  child: Text("Show All"),
+                  value: FilterOption.All,
+                ),
+              ],
+            ),
             Consumer<CardProvider>(
               builder: (_, cardData, ch) => Badge(
                 value: cardData.itemCount.toString(),

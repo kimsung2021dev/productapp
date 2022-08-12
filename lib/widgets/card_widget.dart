@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 class CardWidget extends StatelessWidget {
   final String id;
   final String productId;
-  final double price;
+  final String price;
   final int qty;
   final String title;
 

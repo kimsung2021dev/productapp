@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 class CardItem {
   String id, title;
   int qty;
-  double price;
+  String price;
 
   CardItem(
       {required this.id,
@@ -30,12 +30,12 @@ class CardProvider with ChangeNotifier {
   double get totalAmount {
     var total = 0.0;
     _items.forEach((key, cardItem) {
-      total += cardItem.price * cardItem.qty;
+      total += double.parse(cardItem.price) * cardItem.qty;
     });
     return total;
   }
 
-  void addItem(String prdId, double prdPrice, String prdItem) {
+  void addItem(String prdId, String prdPrice, String prdItem) {
     if (_items.containsKey(prdId)) {
       _items.update(
           prdId,

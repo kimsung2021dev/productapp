@@ -12,34 +12,38 @@ class UserProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(this.title),
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage(imageURL),
-      ),
-      trailing: Container(
-        width: 100,
-        child: Row(
-          children: [
-            IconButton(
-              icon: Icon(Icons.edit),
-              color: Theme.of(context).primaryColor,
-              onPressed: () {
-                Navigator.of(context)
-                    .pushNamed(EditProduct.routeName, arguments: id);
-              },
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.delete,
-                color: Colors.red,
+    return Card(
+      color: Colors.white,
+      child: ListTile(
+        title: Text(this.title),
+        leading: CircleAvatar(
+          backgroundImage: NetworkImage(imageURL),
+        ),
+        trailing: Container(
+          width: 100,
+          child: Row(
+            children: [
+              IconButton(
+                icon: Icon(Icons.edit),
+                color: Theme.of(context).primaryColor,
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushNamed(EditProduct.routeName, arguments: id);
+                },
               ),
-              color: Theme.of(context).errorColor,
-              onPressed: () {
-                Provider.of<Products>(context,listen:false).deleteProduct(id);
-              },
-            )
-          ],
+              IconButton(
+                icon: Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
+                color: Theme.of(context).errorColor,
+                onPressed: () {
+                  Provider.of<Products>(context, listen: false)
+                      .deleteProduct(id);
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -17,10 +17,16 @@ class _EditProductState extends State<EditProduct> {
   final _imgUrlFocusNode = FocusNode();
   final _form = GlobalKey<FormState>();
   var _editedProduct =
-      Product(id: '', title: '', desc: '', price: 0, imgUrl: '');
+      Product(id: '', title: '', desc: '', price: '', imgUrl: '');
   var _isInit = true;
   var _isLoading = false;
-  var _initValues = {'title': '', 'desc': '', 'price': '', 'imgURL': ''};
+  var _initValues = {
+    'title': 'X8Max',
+    'desc': 'Testing Image Product',
+    'price': '16',
+    'imgURL':
+        'https://th.bing.com/th/id/OIP.9D1YVH7nHWkQzBFBhKLY8AHaHa?pid=ImgDet&rs=1'
+  };
 
   void _updateImgURL() {
     if (!_imgUrlFocusNode.hasFocus) {
@@ -39,15 +45,18 @@ class _EditProductState extends State<EditProduct> {
   void didChangeDependencies() {
     if (_isInit) {
       final prdId = ModalRoute.of(context)!.settings.arguments as String;
-      _editedProduct =
-          Provider.of<Products>(context, listen: false).findById(prdId);
-      _initValues = {
-        'title': _editedProduct.title,
-        'desc': _editedProduct.desc,
-        'price': _editedProduct.price.toString(),
-        'imgURL': ''
-      };
-      _imgURLController.text = _editedProduct.imgUrl;
+      if (prdId.isNotEmpty && prdId != null) {
+        _editedProduct =
+            Provider.of<Products>(context, listen: false).findById(prdId);
+        _initValues = {
+          'title': _editedProduct.title,
+          'desc': _editedProduct.desc,
+          'price': _editedProduct.price,
+          'imgURL':
+              'https://th.bing.com/th/id/OIP.9D1YVH7nHWkQzBFBhKLY8AHaHa?pid=ImgDet&rs=1'
+        };
+        _imgURLController.text = _editedProduct.imgUrl;
+      }
       _isInit = false;
       super.didChangeDependencies();
     }
@@ -69,7 +78,7 @@ class _EditProductState extends State<EditProduct> {
     setState(() {
       _isLoading = true;
     });
-    if (_editedProduct.id != null) {
+    if (_editedProduct.id.isNotEmpty && _editedProduct.id != null) {
       await Provider.of<Products>(context, listen: false)
           .updateExistingProduct(_editedProduct.id, _editedProduct);
       setState(() {
@@ -83,11 +92,12 @@ class _EditProductState extends State<EditProduct> {
         setState(() {
           _isLoading = false;
         });
-        Navigator.of(context).pop();
+        // Navigator.of(context).pop();
+
       });
     }
 
-    // Navigator.of(context).pop();
+    Navigator.of(context).pop();
   }
 
   @override
@@ -150,7 +160,7 @@ class _EditProductState extends State<EditProduct> {
                           isFav: _editedProduct.isFav,
                           title: _editedProduct.title,
                           desc: _editedProduct.desc,
-                          price: double.parse(value!),
+                          price: value!,
                           imgUrl: _editedProduct.imgUrl);
                     },
                     validator: (value) {
@@ -185,7 +195,7 @@ class _EditProductState extends State<EditProduct> {
                       if (value!.isEmpty) {
                         return "Please enter a desc";
                       }
-                      if (value.length < 10) {
+                      if (value.length < 5) {
                         return "please enter a valid desc";
                       }
                       if (value.length <= 0) {
